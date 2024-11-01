@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .import forms
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def add_category(request):
     if request.method == 'POST':
         category_form = forms.CategoryForm(request.POST)

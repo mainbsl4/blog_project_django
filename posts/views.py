@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .import forms
 from .import models
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def add_post(request):
     if request.method == 'POST':
         post_form = forms.PostForm(request.POST)
